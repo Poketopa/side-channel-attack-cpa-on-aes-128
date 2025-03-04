@@ -87,8 +87,8 @@ This repository documents the process of extracting the **10th round key of AES*
 
 ### Power Trace Visualization
 
-![Power Trace](images/power_trace.png)
+<img width="181" alt="Image" src="https://github.com/user-attachments/assets/dbdbf2b9-4639-4271-b908-332cf0404111" />
 
 ### Correlation Coefficient Analysis
 
-![Correlation Coefficient](images/correlation_plot.png)
+<img width="260" alt="Image" src="https://github.com/user-attachments/assets/e214d1e0-58d2-41eb-8d26-d9018fba42f6" />
