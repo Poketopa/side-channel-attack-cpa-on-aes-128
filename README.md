@@ -26,29 +26,31 @@ This repository documents the process of extracting the **10th round key of AES*
 
 ## Repository Structure
 
-## Repository Structure
-
-📂 AES_CPA_Attack
-├── 📂 Assignment_1 # First assignment - AES CPA attack
-│ ├── AES_10-Round_CPA-Based_Key_Extraction_Report.pdf
-├── 📂 Assignment_2 # Second assignment - ARIA masking
-│ ├── aria.c
-│ ├── ariaMasking.c
-│ ├── Design_and_Implementation_of_Masking_Side-Channel_Countermeasure.pdf
-│ ├── arduino_AES.ino # Arduino script for AES execution
-├── AES_CPA.c # CPA attack implementation in C
-├── AES_Decrypt.c # AES decryption code
-├── AES_FileEnc.c # AES file encryption handling
-├── AES_masking.c # AES masking implementation
-├── AES_Optimization.c # Optimized AES implementation
-├── AES_Optimization.h # Header file for AES optimizations
-├── AES.c # AES encryption implementation
-├── AES.h # Header file for AES functions
-├── CPA.c # CPA attack implementation
-├── ETStoTRACES.py # Python script to convert ETS to traces
-├── findPTCTKey.py # Script to find plaintext-ciphertext keys
-├── invCPA.c # Inverse CPA implementation  
-├── read_trace.m # MATLAB script for trace reading
+📂 **AES_CPA_Attack**  
+ ├── 📂 **Assignment_1** # First assignment - AES CPA attack  
+ │ ├── 📄 _AES_10-Round_CPA-Based_Key_Extraction_Report.pdf_  
+ │  
+ ├── 📂 **Assignment_2** # Second assignment - ARIA masking  
+ │ ├── 📄 _ARIA_specification.pdf_  
+ │ ├── 📄 _ARIA_testVector.pdf_  
+ │ ├── 📄 _Design_and_Implementation_of_Masking_Side-Channel_Countermeasure.pdf_  
+ │ ├── 📝 _aria.c_  
+ │ ├── 📝 _ariaMasking.c_  
+ │  
+ ├── 📝 _arduino_AES.ino_ # Arduino script for AES execution  
+ ├── 📝 _AES_CPA.c_ # CPA attack implementation in C  
+ ├── 📝 _AES_Decrypt.c_ # AES decryption code  
+ ├── 📝 _AES_FileEnc.c_ # AES file encryption handling  
+ ├── 📝 _AES_masking.c_ # AES masking implementation  
+ ├── 📝 _AES_Optimization.c_ # Optimized AES implementation  
+ ├── 📝 _AES_Optimization.h_ # Header file for AES optimizations  
+ ├── 📝 _AES.c_ # AES encryption implementation  
+ ├── 📝 _AES.h_ # Header file for AES functions  
+ ├── 📝 _CPA.c_ # CPA attack implementation  
+ ├── 🐍 _ETStoTRACES.py_ # Python script to convert ETS to traces  
+ ├── 🐍 _findPTCTKey.py_ # Script to find plaintext-ciphertext keys  
+ ├── 📝 _invCPA.c_ # Inverse CPA implementation  
+ ├── 📄 _read_trace.m_ # MATLAB script for trace reading
 
 ---
 
