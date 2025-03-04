@@ -26,6 +26,11 @@ This repository documents the process of extracting the **10th round key of AES*
 
 ## Repository Structure
 
+ㅁ
+ㅁ
+ㄴㅇ
+ㄴ
+
 AES_CPA_Attack/ ├── Assignment_1/ # First assignment - AES CPA attack │ ├── AES_10-Round_CPA-Based_Key_Extraction_Report.pdf │ ├── Assignment_2/ # Second assignment - ARIA masking │ ├── ARIA_specification.pdf │ ├── ARIA_testVector.pdf │ ├── aria.c │ ├── ariaMasking.c │ ├── Design_and_Implementation_of_Masking_Side-Channel_Countermeasure.pdf │ ├── .gitignore # Ignore unnecessary files │ ├── arduino_AES.ino # Arduino script for AES execution ├── AES_CPA.c # CPA attack implementation in C ├── AES_Decrypt.c # AES decryption code ├── AES_FileEnc.c # AES file encryption handling ├── AES_masking.c # AES masking implementation ├── AES_Optimization.c # Optimized AES implementation ├── AES_Optimization.h # Header file for AES optimizations ├── AES.c # AES encryption implementation ├── AES.h # Header file for AES functions │ ├── ciphertext.txt # Extracted ciphertexts ├── CPA.c # CPA attack implementation ├── ETStoTRACES.py # Python script to convert ETS to traces ├── findPTCTKey.py # Script to find plaintext-ciphertext keys ├── invCPA.c # Inverse CPA implementation ├── key.txt # Extracted key information ├── plaintext.txt # Extracted plaintexts │ ├── read_trace.m # MATLAB script for trace reading ├── SubChannel_Instruction.ipynb # Jupyter Notebook for subchannel analysis │ └── images/ # Folder for result images ├── power_trace.png # Example power trace ├── correlation_plot.png # Correlation coefficient graph
 
 ---
