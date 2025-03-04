@@ -37,20 +37,30 @@ This repository documents the process of extracting the **10th round key of AES*
  │ ├── 📝 _aria.c_  
  │ ├── 📝 _ariaMasking.c_  
  │  
- ├── 📝 _arduino_AES.ino_ # Arduino script for AES execution  
- ├── 📝 _AES_CPA.c_ # CPA attack implementation in C  
- ├── 📝 _AES_Decrypt.c_ # AES decryption code  
- ├── 📝 _AES_FileEnc.c_ # AES file encryption handling  
- ├── 📝 _AES_masking.c_ # AES masking implementation  
- ├── 📝 _AES_Optimization.c_ # Optimized AES implementation  
- ├── 📝 _AES_Optimization.h_ # Header file for AES optimizations  
- ├── 📝 _AES.c_ # AES encryption implementation  
- ├── 📝 _AES.h_ # Header file for AES functions  
- ├── 📝 _CPA.c_ # CPA attack implementation  
- ├── 🐍 _ETStoTRACES.py_ # Python script to convert ETS to traces  
- ├── 🐍 _findPTCTKey.py_ # Script to find plaintext-ciphertext keys  
- ├── 📝 _invCPA.c_ # Inverse CPA implementation  
- ├── 📄 _read_trace.m_ # MATLAB script for trace reading
+ ├── 📂 **AES** # AES-related implementation  
+ │ ├── 📝 _AES_CPA.c_ # CPA attack implementation in C  
+ │ ├── 📝 _AES_Decrypt.c_ # AES decryption code  
+ │ ├── 📝 _AES_FileEnc.c_ # AES file encryption handling  
+ │ ├── 📝 _AES_masking.c_ # AES masking implementation  
+ │ ├── 📝 _AES_Optimization.c_ # Optimized AES implementation  
+ │ ├── 📝 _AES_Optimization.h_ # Header file for AES optimizations  
+ │ ├── 📝 _AES.c_ # AES encryption implementation  
+ │ ├── 📝 _AES.h_ # Header file for AES functions  
+ │ ├── 📝 _CPA.c_ # CPA attack implementation  
+ │ ├── 📝 _invCPA.c_ # Inverse CPA implementation  
+ │  
+ ├── 📂 **trace** # Power trace processing  
+ │ ├── 📝 _arduino_AES.ino_ # Arduino script for AES execution  
+ │ ├── 📝 _Aligned.c_ # Trace alignment implementation  
+ │ ├── 📄 _ciphertext.txt_ # Extracted ciphertext data  
+ │ ├── 🐍 _ETStoTRACES.py_ # Python script to convert ETS to traces  
+ │ ├── 🐍 _findPTCTKey.py_ # Script to find plaintext-ciphertext keys  
+ │ ├── 📄 _key.txt_ # AES key data  
+ │ ├── 📄 _plaintext.txt_ # Extracted plaintext data  
+ │ ├── 📄 _read_trace.m_ # MATLAB script for trace reading  
+ │ ├── 📄 _SubChannel_Instruction.ipynb_ # Jupyter Notebook for side-channel analysis  
+ │  
+ ├── 📄 _README.md_ # Project documentation
 
 ---
 
