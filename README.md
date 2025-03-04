@@ -24,6 +24,8 @@ This repository documents the process of extracting the **10th round key of AES*
 
 ## Repository Structure
 
+## Repository Structure
+
 📂 AES_CPA_Attack 
 ├── 📂 Assignment_1 # First assignment - AES CPA attack 
 │ ├── AES_10-Round_CPA-Based_Key_Extraction_Report.pdf 
