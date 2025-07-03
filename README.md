@@ -1,104 +1,115 @@
-# AES 10-Round CPA-Based Key Extraction
+# 🏆 AES 10라운드 CPA 기반 키 추출
 
-## Introduction
+## 소개
 
-This repository documents the process of extracting the **10th round key of AES** using **Correlation Power Analysis (CPA)**. The experiment involves **power trace collection, data preprocessing, CPA attack, and key schedule reversal to derive the master key**.
-
----
-
-## Experiment Setup
-
-- **Target Algorithm**: AES-128
-- **Power Analysis Technique**: Correlation Power Analysis (CPA)
-- **Captured Rounds**: 9th Round AddRoundKey ~ 10th Round Final AddRoundKey
-- **Trigger Points**:
-  - Start of 9th Round AddRoundKey
-  - End of AES encryption
-- **Equipment & Tools**:
-  - **Oscilloscope**: Captures power consumption traces
-  - **Arduino**: AES encryption execution
-  - **estraces**: Used for trace storage and conversion
-  - **MATLAB**: Trace visualization & correlation analysis
-  - **C Programming**: CPA implementation
-  - **Python**: Key expansion reversal to extract the master key
+**AES의 10번째 라운드 키**를 **상관 전력 분석(Correlation Power Analysis, CPA)** 을 통해 추출하는 과정을 문서화 하였습니다.
+실험은 **전력 트레이스 수집, 데이터 전처리, CPA 공격 수행, 키 스케줄 역연산을 통한 마스터 키 복원**으로 구성됩니다.
 
 ---
 
-## Repository Structure
+## 실험 환경
+
+- **대상 알고리즘**: AES-128
+- **전력 분석 기법**: Correlation Power Analysis (CPA)
+- **캡처된 라운드**: 9라운드 AddRoundKey ~ 10라운드 최종 AddRoundKey
+- **트리거 지점**:
+  - 9라운드 AddRoundKey 시작
+  - AES 암호화 종료
+- **사용 장비 및 도구**:
+  - **오실로스코프(Oscilloscope)**: 전력 소비 트레이스 수집
+  - **아두이노(Arduino)**: AES 암호화 수행
+  - **estraces**: 트레이스 저장 및 변환
+  - **MATLAB**: 트레이스 시각화 및 상관 분석
+  - **C 프로그래밍**: CPA 알고리즘 구현
+  - **Python**: 키 스케줄 역연산 및 마스터 키 복원
+
+---
+
+## 저장소 구성
 
 📂 **AES_CPA_Attack**  
- ├── 📂 **Assignment_1** # First assignment - AES CPA attack  
+ ├── 📂 **Assignment_1** # 1차 과제 – AES CPA 공격  
  │ ├── 📄 _AES_10-Round_CPA-Based_Key_Extraction_Report.pdf_  
  │  
- ├── 📂 **Assignment_2** # Second assignment - ARIA masking  
+ ├── 📂 **Assignment_2** # 2차 과제 – ARIA 마스킹  
  │ ├── 📄 _ARIA_specification.pdf_  
  │ ├── 📄 _ARIA_testVector.pdf_  
  │ ├── 📄 _Design_and_Implementation_of_Masking_Side-Channel_Countermeasure.pdf_  
  │ ├── 📝 _aria.c_  
  │ ├── 📝 _ariaMasking.c_  
  │  
- ├── 📂 **AES** # AES-related implementation  
- │ ├── 📝 _AES_CPA.c_ # CPA attack implementation in C  
- │ ├── 📝 _AES_Decrypt.c_ # AES decryption code  
- │ ├── 📝 _AES_FileEnc.c_ # AES file encryption handling  
- │ ├── 📝 _AES_masking.c_ # AES masking implementation  
- │ ├── 📝 _AES_Optimization.c_ # Optimized AES implementation  
- │ ├── 📝 _AES_Optimization.h_ # Header file for AES optimizations  
- │ ├── 📝 _AES.c_ # AES encryption implementation  
- │ ├── 📝 _AES.h_ # Header file for AES functions  
- │ ├── 📝 _CPA.c_ # CPA attack implementation  
- │ ├── 📝 _invCPA.c_ # Inverse CPA implementation  
+ ├── 📂 **AES** # AES 관련 코드 구현  
+ │ ├── 📝 _AES_CPA.c_ # C로 구현한 CPA 공격  
+ │ ├── 📝 _AES_Decrypt.c_ # AES 복호화 코드  
+ │ ├── 📝 _AES_FileEnc.c_ # 파일 암호화 처리  
+ │ ├── 📝 _AES_masking.c_ # AES 마스킹 구현  
+ │ ├── 📝 _AES_Optimization.c_ # 최적화된 AES 구현  
+ │ ├── 📝 _AES_Optimization.h_ # AES 최적화 헤더 파일  
+ │ ├── 📝 _AES.c_ # AES 암호화 코드  
+ │ ├── 📝 _AES.h_ # AES 헤더 파일  
+ │ ├── 📝 _CPA.c_ # CPA 알고리즘 구현  
+ │ ├── 📝 _invCPA.c_ # 역 CPA 알고리즘 구현  
  │  
- ├── 📂 **trace** # Power trace processing  
- │ ├── 📝 _arduino_AES.ino_ # Arduino script for AES execution  
- │ ├── 📝 _Aligned.c_ # Trace alignment implementation  
- │ ├── 📄 _ciphertext.txt_ # Extracted ciphertext data  
- │ ├── 🐍 _ETStoTRACES.py_ # Python script to convert ETS to traces  
- │ ├── 🐍 _findPTCTKey.py_ # Script to find plaintext-ciphertext keys  
- │ ├── 📄 _key.txt_ # AES key data  
- │ ├── 📄 _plaintext.txt_ # Extracted plaintext data  
- │ ├── 📄 _read_trace.m_ # MATLAB script for trace reading  
- │ ├── 📄 _SubChannel_Instruction.ipynb_ # Jupyter Notebook for side-channel analysis  
+ ├── 📂 **trace** # 전력 트레이스 처리  
+ │ ├── 📝 _arduino_AES.ino_ # 아두이노 AES 스크립트  
+ │ ├── 📝 _Aligned.c_ # 트레이스 정렬 코드  
+ │ ├── 📄 _ciphertext.txt_ # 암호문 데이터  
+ │ ├── 🐍 _ETStoTRACES.py_ # ETS → 트레이스 변환 스크립트  
+ │ ├── 🐍 _findPTCTKey.py_ # 평문·암호문 키 탐색 스크립트  
+ │ ├── 📄 _key.txt_ # AES 키 데이터  
+ │ ├── 📄 _plaintext.txt_ # 평문 데이터  
+ │ ├── 📄 _read_trace.m_ # MATLAB용 트레이스 읽기 스크립트  
+ │ ├── 📄 _SubChannel_Instruction.ipynb_ # 사이드 채널 분석 노트북  
  │  
- ├── 📄 _README.md_ # Project documentation
+ ├── 📄 _README.md_ # 프로젝트 설명 문서
 
 ---
 
-## CPA Analysis
+## CPA 분석 과정
 
-### 1. Power Trace Collection
+### 1. 전력 트레이스 수집
 
-- Power traces were captured using an oscilloscope while performing AES encryption.
-- Triggers were set at the **start of 9th round AddRoundKey** and **end of AES encryption**.
-
-### 2. Data Preprocessing
-
-- The collected `.ets` power trace files were converted into `.traces` format using **estraces**.
-- Extracted plaintexts, ciphertexts, and power traces were stored as `plaintext.txt`, `ciphertext.txt`, and `traces.traces`.
-
-### 3. CPA Execution
-
-- The attack targets **InvSBox** outputs in the **10th round of AES decryption**.
-- The CPA algorithm correlates power traces with **Hamming Weight (HW)** of **InvSBox(ciphertext ⊕ key_guess)**.
-- The key candidate with the highest correlation was selected.
-
-### 4. Key Schedule Reversal
-
-- The extracted **10th round key** was used to compute the **AES master key** by reversing the key schedule.
-- Python scripts were utilized for the reversal process.
+- AES 암호화를 수행하며 오실로스코프로 전력 트레이스를 수집하였습니다.
+- 트리거는 **9라운드 AddRoundKey 시작**과 **AES 암호화 종료**에 설정하였습니다.
 
 ---
 
-## Results
+### 2. 데이터 전처리
 
-- Successfully extracted the **10th round AES key** through CPA.
-- Used **AES key expansion reversal** to derive the **original master key**.
-- Correlation coefficient graphs confirmed the effectiveness of the attack.
+- 수집한 `.ets` 전력 트레이스 파일을 **estraces**를 이용해 `.traces` 형식으로 변환하였습니다.
+- 추출된 평문, 암호문, 전력 트레이스는 각각 `plaintext.txt`, `ciphertext.txt`, `traces.traces`로 저장하였습니다.
 
-### Power Trace Visualization
+---
+
+### 3. CPA 수행
+
+- 공격 대상은 **AES 복호화 10라운드의 InvSBox 출력**입니다.
+- CPA 알고리즘은 전력 트레이스와 **InvSBox(ciphertext ⊕ key_guess)** 의 해밍 가중치(Hamming Weight, HW)를 상관 분석합니다.
+- 상관계수가 가장 높은 키 후보가 추출됩니다.
+
+---
+
+### 4. 키 스케줄 역연산
+
+- 추출된 **10라운드 키**를 사용해 AES의 **마스터 키(master key)** 를 역연산으로 복원합니다.
+- 역연산 과정에는 Python 스크립트를 사용하였습니다.
+
+---
+
+## 결과
+
+- CPA를 통해 **AES 10라운드 키**를 성공적으로 추출하였습니다.
+- **AES 키 스케줄 역연산**을 수행하여 **마스터 키**를 복원하였습니다.
+- 상관계수 그래프를 통해 공격의 성공을 검증하였습니다.
+
+---
+
+### 전력 트레이스 시각화
 
 <img width="500" alt="Image" src="https://github.com/user-attachments/assets/dbdbf2b9-4639-4271-b908-332cf0404111" />
 
-### Correlation Coefficient Analysis
+---
+
+### 상관계수 분석
 
 <img width="500" alt="Image" src="https://github.com/user-attachments/assets/e214d1e0-58d2-41eb-8d26-d9018fba42f6" />
